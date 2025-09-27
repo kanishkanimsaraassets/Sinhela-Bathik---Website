@@ -449,34 +449,28 @@
             .parallax-bg {
                 background-attachment: scroll; /* FIXED: Change to scroll for mobile */
             }
-            
             .hero-logo {
-                width: 90%;
+                width: 95%;
                 margin-top: 1rem;
             }
-
             .hero-tagline {
-                font-size: 1.25rem;
+                font-size: 1rem;
             }
-            
             /* Stack "Our Story" text and image vertically on small screens */
             .story-flex-container {
                 flex-direction: column;
                 gap: 1.5rem;
             }
-            
             /* Stack heading and image vertically on small screens */
             .heading-with-image {
                 flex-direction: column;
                 text-align: center;
                 gap: 1rem;
             }
-
             .heading-image {
                 height: 60px;
-				width: 100%;
+                width: 100%;
             }
-            
             /* Adjust button padding for touch targets */
             .cta-button, .cta-button-discover {
                 padding: 12px 24px;
@@ -484,7 +478,41 @@
             .cta-button-discover {
                 margin: 20px auto 0;
             }
-
+            /* Product grid and testimonials grid for mobile */
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+        }
+        /* Tablet breakpoint for layout and font scaling */
+        @media screen and (max-width: 1024px) {
+            .content-section {
+                padding: 2rem 1rem;
+                margin: 6rem auto;
+            }
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 18px;
+            }
+            .testimonials-grid {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 18px;
+            }
+            .hero-logo {
+                max-width: 600px;
+                margin-top: 8rem;
+            }
+            h1, .decorative-font {
+                font-size: 3rem;
+            }
+            h2 {
+                font-size: 1.7rem;
+            }
+        }
             /* FIX: Footer adjustments for mobile */
             .footer {
                 padding: 16px 12px;
