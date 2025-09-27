@@ -10,6 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
+        /* Make all images responsive */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
         /* General body and font styles */
         body {
             font-family: 'Inter', sans-serif;
@@ -77,6 +82,13 @@
 
         .topnav .icon {
             display: none; /* Hide the hamburger icon on desktop */
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 28px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
         }
 
         /* Parallax Hero Section */
@@ -388,12 +400,11 @@
 
             /* FIX: Mobile nav bar adjustments */
             .topnav {
-                /* The logo and icon are now explicitly placed at the beginning and end of the row */
-                flex-direction: row; 
+                flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
-                padding: auto;
-                flex-wrap: wrap; /* Allows the content to wrap */
+                padding: 0 10px;
+                flex-wrap: wrap;
                 height: auto;
             }
             
@@ -432,8 +443,6 @@
             
             .topnav .icon {
                 display: block; /* Show the hamburger icon on mobile */
-                font-size: 24px;
-                cursor: pointer;
             }
             
             /* Hero section adjustments */
@@ -508,13 +517,10 @@
 
     <div class="topnav" id="myTopnav">
         <img src="Brown Logo - New.png" alt="Sinhela Bathik Logo" class="logo">
-        
         <div class="divider"></div>
-        
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            Menu
-        </a>
-
+        <button class="icon" aria-label="Open navigation menu" onclick="myFunction()">
+            <span style="font-size:28px;">&#9776;</span>
+        </button>
         <div class="topnav-links">
             <a href="index.html">Home</a> 
             <a href="about.html">About Us</a>
@@ -659,6 +665,13 @@
         function myFunction() {
             var x = document.getElementById("myTopnav");
             x.classList.toggle("responsive");
+            // Toggle aria-expanded for accessibility
+            var btn = x.querySelector('.icon');
+            if (x.classList.contains('responsive')) {
+                btn.setAttribute('aria-expanded', 'true');
+            } else {
+                btn.setAttribute('aria-expanded', 'false');
+            }
         }
         
         // JavaScript for the fade-in on scroll effect
