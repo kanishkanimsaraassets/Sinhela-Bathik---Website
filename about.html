@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinhela Bathik (සිංහෙළ බතික්) - About Us</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* General body and font styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #1A1A1A;
+            background-color: #220C0C;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar */
+        .topnav {
+            overflow: hidden;
+            background-color: #320003;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        /* Logo styling */
+        .topnav .logo {
+            height: 150px; 
+            width: 150px;
+            object-fit: contain;
+        }
+        
+        /* New divider element for the horizontal line */
+        .divider {
+            width: 60%;
+            height: 2px;
+            background-color: #FFC107;
+            margin: 10px auto;
+        }
+
+        /* The container for the logo, centered with flexbox */
+        .topnav-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .topnav a {
+            display: block;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 14px 50px;
+            text-decoration: none;
+            font-size: 19px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .topnav a:hover {
+            background-color: #320003;
+            color: #fab140;
+        }
+        
+        .topnav a.active {
+            color: #fab140; /* Highlight the active page */
+        }
+
+        .topnav .icon {
+            display: none;
+        }
+
+        /* Parallax Hero Section */
+        .parallax-bg {
+            min-height: 50vh; /* Shorter hero section for sub-pages */
+            background-image: url("AboutUs Hero.jpg");
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #FBF8F1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            transition: opacity 0.3s ease-out;
+        }
+
+        .hero-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 4rem;
+            margin: 0;
+            padding-top: 150px; /* Space for the fixed nav bar */
+        }
+        
+        .hero-tagline {
+            font-size: 2rem;
+            color: #FFFFFF;
+            margin-top: 0;
+            margin-bottom: 2rem;
+            max-width: 80%;
+        }
+
+        /* Main Content Sections */
+        .content-section {
+            width: 100%;
+            max-width: 1200px;
+            margin: 8rem auto;
+            padding: 3rem;
+            background-color: #FBF8F1;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: 1px solid #E0E0E0;
+            border-radius: 12px;
+        }
+
+        .story-section {
+            background-color: #FFECEC;
+        }
+        
+        .story-paragraph {
+            text-align: justify;
+        }
+
+        .story-flex-container {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .story-heading-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 1rem;
+        }
+        
+        /* INCREASED FONT SIZE FOR H1 INSIDE THE CONTENT SECTION */
+        .content-section h1 {
+            font-size: 4rem;
+            color: #260101;
+        }
+        
+        .content-section h1:first-of-type {
+            margin-bottom: 0.5rem;
+        }
+
+        .story-text-wrapper {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .story-image-wrapper {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .story-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        /* Product Grid Layout */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 2rem 0;
+        }
+
+        .product-item {
+            text-align: center;
+            transition: transform 0.3s ease;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+
+        .product-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .product-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Headings and Paragraphs */
+        h2 {
+            color: #3B1105;
+            font-size: 2.2rem;
+        }
+        
+        /* A new class for the decorative font on the heading */
+        .decorative-font {
+            font-family: Poppins;
+            color: #3B1105;
+            font-size: 4rem;
+        }
+        
+        /* New styles to create a row layout for the heading and image */
+        .heading-with-image {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .heading-with-image h2 {
+            margin-right: 5px;
+        }
+
+        .heading-image {
+            height: 80px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        h3 {
+            color: #6F4E37;
+        }
+        
+        h3.product-heading {
+            color: #250606;
+        }
+
+        p {
+            color: #1A1A1A;
+        }
+        
+        /*Discover More Button */
+        .cta-button-discover {
+            display: block;
+            width: fit-content;
+            margin: 20px auto 0;
+            padding: 15px 30px;
+            background-color: #3B1105;
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .cta-button-discover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        /* Call to Action button */
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin-top: 20px;
+            background-color: #3B1105;
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+        
+
+        /* Testimonials Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 2rem 0;
+        }
+        
+        .testimonial-item {
+            background-color: #F7EFE9;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            font-style: italic;
+        }
+
+        .testimonial-item p {
+            margin: 0 0 10px 0;
+            color: #4B3621;
+        }
+        
+        .testimonial-item .customer-name {
+            font-weight: bold;
+            font-style: normal;
+            color: #320003;
+            display: block;
+            text-align: right;
+            margin-top: 15px;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #320003;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        /* A new rule to apply the transform ONLY to wider screens */
+        @media screen and (min-width: 769px) {
+            
+        }
+        
+        /* The specific rule to fix the footer text color */
+        .footer p {
+            color: #FFFFFF;
+        }
+        
+        /* Styles for the social media icons container and images */
+        .social-media-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 10px;
+        }
+        
+        .social-icon {
+            height: 40px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Responsive design for mobile devices */
+        @media screen and (max-width: 775px) {
+            /* General mobile adjustments */
+            .content-section {
+                padding: 1.5rem;
+                margin: 5rem auto;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .decorative-font {
+                font-size: 2.5rem;
+            }
+
+            /* FIX: Mobile nav bar adjustments */
+            .topnav {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: auto;
+                flex-wrap: wrap;
+                height: auto;
+            }
+            
+            /* Hide the links by default on mobile */
+            .topnav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #320003;
+                text-align: center;
+            }
+
+            /* FIX: Show the menu links when the responsive class is active */
+            .topnav.responsive .topnav-links {
+                display: flex;
+            }
+
+            .topnav .logo {
+                align-items: center;
+                height: 100px;
+                width: auto;
+            }
+            
+            .divider {
+                display: none;
+            }
+
+            .topnav a {
+                padding: 14px 25px;
+                font-size: 16px;
+                width: 100%;
+            }
+            
+            .topnav .icon {
+                display: block;
+                font-size: 24px;
+                cursor: pointer;
+            }
+            
+            /* Hero section adjustments */
+            .parallax-bg {
+                background-attachment: scroll;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-tagline {
+                font-size: 1.25rem;
+            }
+            
+            /* Stack "Our Story" text and image vertically on small screens */
+            .story-flex-container {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            /* Stack heading and image vertically on small screens */
+            .heading-with-image {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .heading-image {
+                height: 60px;
+                width: 100%;
+            }
+            
+            /* Adjust button padding for touch targets */
+            .cta-button, .cta-button-discover {
+                padding: 12px 24px;
+            }
+            .cta-button-discover {
+                margin: 20px auto 0;
+            }
+
+            /* FIX: Footer adjustments for mobile */
+            .footer {
+                
+            }
+
+            .footer p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Fade-in on scroll effect */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20vh);
+            visibility: hidden;
+            transition: opacity 1.2s ease-out, transform 0.8s ease-out;
+            will-change: opacity, visibility, transform;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <div class="topnav" id="myTopnav">
+        <img src="Brown Logo - New.png" alt="Sinhela Bathik Logo" class="logo">
+        
+        <div class="divider"></div>
+        
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            Menu
+        </a>
+
+        <div class="topnav-links">
+            <a href="index.html">Home</a> 
+            <a href="about.html" class="active">About Us</a>
+            <a href="products.html">Products</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </div>
+
+    <header class="parallax-bg">
+        <div class="hero-content"><br> <br><br><br><br>
+            <h1 class="hero-title">About US</h1><br><br>
+            <p class="hero-tagline">Where Tradition Meets Modern Elegance</p>
+        </div>
+    </header>
+
+    <section class="content-section fade-in-section story-section">
+        <div class="story-flex-container">
+            <div class="story-text-wrapper"><br> <br><br><br>
+                <img src="Sinhela Bathik Wording Brown.png" alt="sinhela bathik wording" class="story-heading-image"><br><br> <br><br><br>
+                <p class="story-paragraph">Sinhela Bathik was founded with a singular passion: to honor and revive the ancient art of Batik. What began as a small, family-run workshop has blossomed into a brand that stands for authenticity, sustainability, and unparalleled craftsmanship. Our journey is a tribute to the resilient spirit of Sri Lanka's artisans, who continue to practice this delicate craft, ensuring its legacy for generations to come. Each thread we dye and every design we create is a piece of our heritage, meticulously woven with care and dedication. By blending traditional techniques with modern, elegant aesthetics, we create unique, wearable art that tells a story of culture and pride.</p>
+            </div>
+            <div class="story-image-wrapper">
+                <img src="Our Story 2.jpg" alt="A Sri Lankan artisan working on a Batik piece." class="story-image">
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section fade-in-section">
+        <h2 class="decorative-font" style="text-align: center;">Our Mission &amp; Values</h2>
+        <div class="product-grid">
+            <div class="product-item">
+                <h3 class="product-heading">Authenticity</h3>
+                <p>We are dedicated to using traditional methods and 100% pure cotton, ensuring ever true reflection of Sri Lankan Batik.</p>
+            </div>
+            <div class="product-item">
+                <h3 class="product-heading">Craftsmanship</h3>
+                <p>Our skilled artisans pour their heart and soul into every piece, creating designs that are not just clothes, but works of art.</p>
+            </div>
+            <div class="product-item">
+                <h3 class="product-heading">Sustainability</h3>
+                <p>We are committed to eco-friendly practices and ethical production, minimizing our environmental footprint and promoting a greener future.</p>
+            </div>
+            <div class="product-item">
+                <h3 class="product-heading">Community</h3>
+                <p>We believe in empowering our local artisans, providing fair wages and a supportive environment that allows their talent to flourish.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section fade-in-section" style="text-align: center;">
+        <h2>Ready to Experience Authentic Sri Lankan Art?</h2>
+        <p>Explore our collection and find a piece that connects you to the rich heritage of Sri Lanka.</p>
+        <a href="products.html" class="cta-button">Our Collection</a>
+    </section>
+
+    <footer class="footer fade-in-section">
+        
+        <p>Follow Us On </p>
+        <div class="social-media-icons">
+            <!-- WhatsApp Icon -->
+            <a href="https://wa.me/94765991232" target="_blank">
+                <img src="whatsapp-icon.png" alt="WhatsApp" class="social-icon">
+            </a>
+            <!-- Facebook Icon -->
+            <a href="https://www.facebook.com/sinhelabathik" target="_blank">
+                <img src="facebook-icon.png" alt="Facebook" class="social-icon">
+            </a>
+            <!-- Instagram Icon -->
+            <a href="https://www.instagram.com/sinhelabathik" target="_blank">
+                <img src="instagram-icon.png" alt="Instagram" class="social-icon">
+            </a>
+            <!-- TikTok Icon -->
+            <a href="https://www.tiktok.com/@helabathiks" target="_blank">
+                <img src="tiktok-icon.png" alt="TikTok" class="social-icon">
+            </a>
+        </div>
+        
+        <p>Tel: +94 7659 91232 </p>
+        <p>Email: sinhelabathik@gmail.com</p> 
+        <p>&copy; 2025 Sinhela Bathik. All Rights Reserved.</p><br>
+    </footer>
+
+    <script>
+        // Parallax effect and navigation fade using jQuery
+        $(window).scroll(function() {
+            var scrolled = $(window).scrollTop();
+            
+            // Fade out the hero section as you scroll down
+            var heroOpacity = 1 - (scrolled / window.innerHeight);
+            $('.parallax-bg').css('opacity', heroOpacity);
+            
+            // Fade out the navigation bar as you scroll down
+            var navOpacity = Math.max(0, 1 - scrolled / 100);
+            $('.topnav').css('opacity', navOpacity);
+        });
+
+        // Function to toggle the responsive navigation menu
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            x.classList.toggle("responsive");
+        }
+        
+        // JavaScript for the fade-in on scroll effect
+        document.addEventListener("DOMContentLoaded", function() {
+            var fadeInSections = document.querySelectorAll('.fade-in-section');
+
+            function checkVisibility() {
+                fadeInSections.forEach(function(section) {
+                    var rect = section.getBoundingClientRect();
+                    var isVisible = (
+                        rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85
+                    );
+                    if (isVisible) {
+                        section.classList.add('is-visible');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', checkVisibility);
+            window.addEventListener('load', checkVisibility);
+            checkVisibility(); // Initial check on load
+        });
+    </script>
+
+<script src="https://static.app/js/static.js" type="text/javascript"></script>
+</body>
+</html>
